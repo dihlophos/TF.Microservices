@@ -65,11 +65,14 @@ namespace TF
             /// Сохранить информацию о заказе
             /// Списать остатки в WH
 
-            /// Выполнение базового обработчика
-            app.UseDefaultOrderProcess(context);
+            /// Получение цен и пересчет суммы
+            app.UseDefaultPriceForOrder(context);
 
             /// Обработка карты лояльности
             app.UseLoyaltyAmountModificatorForOrder(context);
+
+            /// Выполнение базового обработчика
+            app.UseDefaultOrderProcess(context);
 
             /// Обработка списаний
             app.UseWriteOffForOrder(context);
@@ -108,6 +111,13 @@ namespace TF
         public void UseAuthServer(System.Web.HttpContext context)
         {
             /// Auth request
+        }
+
+        public void UseDefaultPriceForOrder(System.Web.HttpContext context)
+        {
+            /// Get Order from ???
+            /// Get Price
+            /// Modify Order
         }
 
         /// <summary>
