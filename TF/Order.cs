@@ -23,10 +23,31 @@ namespace TF
         /// </summary>
         public class Line
         {
-            string ITEM { get; set; }
+            public string ITEM { get; set; }
             public decimal QTY { get; set; }
             public decimal PRICE { get; set; }
             public decimal AMOUNT { get; set; }
+        }
+
+        private Dictionary<string, object> plugins = null;
+
+        public Order()
+        {
+            this.plugins = new Dictionary<string, object>();
+        }
+
+        public object this[string key]
+        {
+            get
+            {
+                // Добавить проверку
+                return this.plugins[key];
+            }
+            set
+            {
+                // Добавить проверку
+                this.plugins.Add(key, value);
+            }
         }
     }
 }

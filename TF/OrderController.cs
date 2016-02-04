@@ -43,6 +43,8 @@ namespace TF
         public HttpResponseMessage Patch(System.Web.HttpContext context)
         {
             app.UseAuthServer(context);
+
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -71,6 +73,8 @@ namespace TF
 
             /// Обработка списаний
             app.UseWriteOffForOrder(context);
+
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -79,8 +83,21 @@ namespace TF
         /// <returns></returns>
         public HttpResponseMessage Get()
         {
+            var order = new Order()
+            {
+                CUSTOMER = "Иван",
+                DESTINATION = "Москва",
+                DUEDATE = DateTime.Now,
+                LINES = new[] { 
+                    new Order.Line { ITEM = "mars",  AMOUNT = 100, PRICE = 5, QTY = 500},
+                    new Order.Line { ITEM = "cars", AMOUNT = 200, PRICE = 1, QTY = 200} 
+                }
+            };
 
-        } 
+            order["Loyalty"] = new LoyaltyCard() { LOYALTY = "QWE", LOYALTY_VARIANT = "A" };
+
+            return new HttpResponseMessage() { Content = new StringContent(order.ToString()) };
+        }
     }
 
     /// <summary>
