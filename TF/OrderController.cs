@@ -54,6 +54,8 @@ namespace TF
         /// <returns></returns>
         public HttpResponseMessage Post(System.Web.HttpContext context)
         {
+            app.UseAuthServer(context);
+
             /// Видимо, здесь нужно будет инициировать некую транзакцию
             /// И навешивать на нее все дальнейшие обработчики
 
