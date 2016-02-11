@@ -37,6 +37,6 @@ namespace TF.Business.WMS
         /// <summary>
         /// Product price
         /// </summary>
-        public float Price { get; set; }
+        public float ProductPrice { get; set; }
     }
 }
