@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TF.Business.WMS.Product
+namespace TF.Business.WMS
 {
     public interface IProductService
     {
