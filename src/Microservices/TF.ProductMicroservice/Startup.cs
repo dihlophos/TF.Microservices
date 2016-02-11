@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
 using Microsoft.Owin.Hosting;
 
-[assembly: OwinStartup(typeof(TF.ProductMicroservice.Startup))]
 namespace TF.ProductMicroservice
 {
     public class Startup

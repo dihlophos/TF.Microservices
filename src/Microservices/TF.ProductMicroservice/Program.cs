@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Topshelf;
-using Topshelf.HostConfigurators;
+﻿using Topshelf;
 
 namespace TF.ProductMicroservice
 {
@@ -21,13 +14,6 @@ namespace TF.ProductMicroservice
                     s.WhenStarted(svc => svc.Start("http://localhost:5555/"));
                     s.WhenStopped(svc => svc.Stop());
                 });
-
-                //x.Service<ProductWebApiService>(s =>
-                //{
-                //    s.ConstructUsing(name => new ProductWebApiService());
-                //    s.WhenStarted(svc => svc.Start());
-                //    s.WhenStopped(svc => svc.Stop());
-                //});
 
                 x.RunAsLocalSystem();
                 
