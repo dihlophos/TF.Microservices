@@ -54,12 +54,6 @@
     <Compile Include="OrderControllerUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TF\TF.csproj">
-      <Project>{ea9c793b-fd54-4d58-817a-ba0bcc0b5012}</Project>
-      <Name>TF</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
