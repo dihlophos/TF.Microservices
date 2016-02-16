@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OData", "OData\OData.csproj", "{9D594372-C725-44BF-877B-E3B80C8CAC1C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{BD8D6E7C-6911-417A-B435-A669A57C7F8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TF.ProductMicroservice", "src\Microservices\TF.ProductMicroservice\TF.ProductMicroservice.csproj", "{24922083-1826-480D-B73A-1BFA9D463560}"
@@ -13,32 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublicApi", "PublicApi", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{81F2A10E-CDD2-43D8-A8C0-28BF4D0A53EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TF.AuthorizationMicroservice", "src\Microservices\TF.AuthorizationMicroservice\TF.AuthorizationMicroservice.csproj", "{62AF66F7-1702-4008-9F05-DA8EDE9EF29E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9D594372-C725-44BF-877B-E3B80C8CAC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D594372-C725-44BF-877B-E3B80C8CAC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D594372-C725-44BF-877B-E3B80C8CAC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D594372-C725-44BF-877B-E3B80C8CAC1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24922083-1826-480D-B73A-1BFA9D463560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24922083-1826-480D-B73A-1BFA9D463560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24922083-1826-480D-B73A-1BFA9D463560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24922083-1826-480D-B73A-1BFA9D463560}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62AF66F7-1702-4008-9F05-DA8EDE9EF29E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62AF66F7-1702-4008-9F05-DA8EDE9EF29E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62AF66F7-1702-4008-9F05-DA8EDE9EF29E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62AF66F7-1702-4008-9F05-DA8EDE9EF29E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{24922083-1826-480D-B73A-1BFA9D463560} = {BD8D6E7C-6911-417A-B435-A669A57C7F8F}
-		{62AF66F7-1702-4008-9F05-DA8EDE9EF29E} = {BD8D6E7C-6911-417A-B435-A669A57C7F8F}
 	EndGlobalSection
 EndGlobal

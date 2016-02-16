@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("TF.AuthorizationMicroservice")]
+[assembly: AssemblyTitle("TF.CategoryMicroservice")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IT Organization")]
-[assembly: AssemblyProduct("TF.AuthorizationMicroservice")]
-[assembly: AssemblyCopyright("Copyright © IT Organization 2016")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TF.CategoryMicroservice")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("71670982-318d-47ae-8c1b-06879ba5ed33")]
+[assembly: Guid("a5a032c9-3cde-4bdb-afac-dbcbe646ebc6")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
