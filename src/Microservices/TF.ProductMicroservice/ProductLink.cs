@@ -4,7 +4,7 @@ namespace TF.ProductMicroservice
 {
     public class ProductLink
     {
-        private static readonly string apiURI = "/api/products/"; // полную ссылку
+        private static readonly string apiURI = "http://localhost:5555/api/products/"; // взять откуда-то..
 
         public string Name { get; set; }
         public string Type { get; set; }
@@ -15,6 +15,7 @@ namespace TF.ProductMicroservice
             {
                 return apiURI + this.Id.ToString();
             }
+            set { }
         }
     }
 }

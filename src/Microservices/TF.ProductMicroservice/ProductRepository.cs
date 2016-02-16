@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace TF.ProductMicroservice
 {
-    class ProductRepository : IProductRepository, IDisposable
+    class ProductRepository : IProductRepository
     {
 
         private ProductContext productContext = new ProductContext();
