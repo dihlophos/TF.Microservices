@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TF.ProductMicroservice
 {
-    interface IProductRepository:IDisposable
+    public interface IProductRepository
     {
         Product Get(Guid productId);
         Product Save(Product product);

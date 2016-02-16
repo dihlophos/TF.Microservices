@@ -60,7 +60,7 @@ namespace TF.ProductMicroservice
         public virtual Product Parent { get; set; }
 
         [JsonProperty(PropertyName = "childs")]
-        public virtual ICollection<Product> Childs { get; set; }
+        public ICollection<Product> Childs { get; set; }
 
         public ProductMessage GetMessage()
         {

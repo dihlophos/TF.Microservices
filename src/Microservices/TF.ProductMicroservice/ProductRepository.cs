@@ -6,13 +6,13 @@ namespace TF.ProductMicroservice
 {
     class ProductRepository : IProductRepository
     {
-
-        private ProductContext productContext = new ProductContext();
-
         public IEnumerable<Product> Get()
         {
             List<Product> result = null;
-            result = productContext.Products.ToList();
+            using (var productContext = new ProductContext())
+            {
+                result = productContext.Products.ToList();
+            }
             if (result == null)
             {
                 return new List<Product>();
@@ -23,7 +23,10 @@ namespace TF.ProductMicroservice
         public Product Get(Guid productId)
         {
             Product result = null;
-            result = productContext.Products.First(p => p.Id == productId);
+            using (var productContext = new ProductContext())
+            {
+                result = productContext.Products.First(p => p.Id == productId);
+            }
             return result;
         }
 
@@ -42,15 +45,18 @@ namespace TF.ProductMicroservice
         public void Delete(Guid productId)
         {
             Product toDel = null;
-            toDel = productContext.Products.First(p => p.Id == productId);
-            if (toDel != null)
+            using (var productContext = new ProductContext())
             {
-                productContext.Products.Remove(toDel);
-                productContext.SaveChanges();
-            }
-            else
-            {
-                throw new ArgumentException();
+                toDel = productContext.Products.First(p => p.Id == productId);
+                if (toDel != null)
+                {
+                    productContext.Products.Remove(toDel);
+                    productContext.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentException();
+                }
             }
         }
 
@@ -72,26 +78,6 @@ namespace TF.ProductMicroservice
                 productContext.SaveChanges();
                 return productContext.Products.Add(result);
             }
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    productContext.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

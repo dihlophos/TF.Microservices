@@ -2,6 +2,7 @@
 using Owin;
 using System.Web.Http;
 using Microsoft.Owin.Hosting;
+using Microsoft.Practices.Unity;
 
 namespace TF.ProductMicroservice
 {
@@ -12,7 +13,7 @@ namespace TF.ProductMicroservice
         public void Configuration(IAppBuilder app)
         {            
             HttpConfiguration config = new HttpConfiguration();
-
+            Startup.RegisterProductDependency(config);
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -22,6 +23,12 @@ namespace TF.ProductMicroservice
             app.UseWebApi(config); 
         }
 
+        private static void RegisterProductDependency(HttpConfiguration config)
+        {
+            var container = new UnityContainer();
+            container.RegisterType<IProductRepository, ProductRepository>(new HierarchicalLifetimeManager());
+            config.DependencyResolver = new UnityResolver(container);
+        }
 
         public void Start(string baseAddress)
         {
