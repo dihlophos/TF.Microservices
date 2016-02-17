@@ -22,7 +22,7 @@ namespace TF.ProductMicroservice
                 this.Links.Add(new ProductLink() { Id = product.Parent.Id, Name = product.Parent.Name, Type = "parent" });
             }
 
-            foreach (var child in product.Childs)
+            foreach (var child in product.ChildProducts)
             {
                 this.Links.Add(new ProductLink() { Type = child.Type, Name = child.Name, Id = child.Id });
             }

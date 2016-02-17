@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace TF.ProductMicroservice
 {
-    class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         public IEnumerable<Product> Get()
         {
@@ -25,7 +26,7 @@ namespace TF.ProductMicroservice
             Product result = null;
             using (var productContext = new ProductContext())
             {
-                result = productContext.Products.First(p => p.Id == productId);
+                result = productContext.Products.Include("ChildProducts").Single(p => p.Id == productId);
             }
             return result;
         }
@@ -65,6 +66,7 @@ namespace TF.ProductMicroservice
             using (var productContext = new ProductContext())
             {
                 productContext.Products.Attach(product);
+                productContext.Entry(product).State = EntityState.Modified;
                 productContext.SaveChanges();
                 return product;
             }

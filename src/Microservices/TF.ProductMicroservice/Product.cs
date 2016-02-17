@@ -35,7 +35,7 @@ namespace TF.ProductMicroservice
 
         public Product()
         {
-            this.Childs = new List<Product>();
+            this.ChildProducts = new List<Product>();
         }
 
         /// <summary>
@@ -59,10 +59,10 @@ namespace TF.ProductMicroservice
 
         public virtual Product Parent { get; set; }
 
-        [JsonProperty(PropertyName = "childs")]
-        public ICollection<Product> Childs { get; set; }
+        [JsonProperty(PropertyName = "children")]
+        public ICollection<Product> ChildProducts { get; set; }
 
-        public ProductMessage GetMessage()
+        public ProductMessage GetMessage() 
         {
             return new ProductMessage(this);
         }
