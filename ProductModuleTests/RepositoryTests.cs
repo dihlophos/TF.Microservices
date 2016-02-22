@@ -97,7 +97,7 @@ namespace ProductModuleTests
             Assert.IsNotNull(actual.Id);
         }
 
-        private static void TestProductRecursive(Product expected, Product actual)
+        public static void TestProductRecursive(Product expected, Product actual)
         {
             TestProduct(expected, actual);
             if (actual.ChildProducts.Count != 0)
@@ -116,7 +116,7 @@ namespace ProductModuleTests
             return Products.OrderBy(p => p.Name).ToList();
         }
 
-        private static Product GetSimpleProduct()
+        public static Product GetSimpleProduct()
         {
             return new Product() {
                 Name = string.Format("SimpleTestProduct_{0}", Guid.NewGuid()),
@@ -134,7 +134,7 @@ namespace ProductModuleTests
             return products;
         }
 
-        private static Product GetComplexProduct(int childCount)
+        public static Product GetComplexProduct(int childCount)
         {
             var product = new Product() {
                 Name = string.Format("ComplexTestProduct_{0}", Guid.NewGuid()),

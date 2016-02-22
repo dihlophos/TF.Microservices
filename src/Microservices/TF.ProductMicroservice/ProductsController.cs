@@ -31,12 +31,12 @@ namespace TF.ProductMicroservice
 
         public IHttpActionResult Post([FromBody]Product product)
         {
-            return Ok(_repository.Save(product));
+            return Ok(_repository.Save(product).GetMessage());
         }
 
         public IHttpActionResult Put(Guid id, [FromBody]Product product)
         {
-           return  Ok(_repository.Save(product));
+           return  Ok(_repository.Save(product).GetMessage());
         }
 
         public IHttpActionResult Delete(Guid id)
