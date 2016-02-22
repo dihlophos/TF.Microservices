@@ -54,13 +54,36 @@ namespace ProductModuleTests
             TestProductFromDB(saveResult, saveResult.Id);
         }
 
-        /*[TestMethod]
+        [TestMethod]
         public void DeleteTest()
         {
-            var product = GetSimpleProduct();
+            var product = GetComplexProduct(1);
             var saveResult = repository.Save(product);
-            Assert.AreEqual(repository.Get().Count(), 0);
-        }*/ //Каскадное удаление?
+
+            repository.Delete(saveResult.Id);
+            var getResult = repository.Get(saveResult.Id);
+            Assert.IsNull(getResult);
+        }
+
+
+        [TestMethod]
+        public void CascadeDeleteTest()
+        {
+            var product = GetComplexProduct(COMPLEX_PRODUCT_CHILDS);
+            var saveResult = repository.Save(product);
+            Product getResult = null;
+
+            foreach (var child in saveResult.ChildProducts)
+            {
+                repository.Delete(child.Id);
+                getResult = repository.Get(child.Id);
+                Assert.IsNull(getResult);
+            }
+
+            repository.Delete(saveResult.Id);
+            getResult = repository.Get(saveResult.Id);
+            Assert.IsNull(getResult);
+        }
 
         private static void TestProduct(Product expected, Product actual)
         {

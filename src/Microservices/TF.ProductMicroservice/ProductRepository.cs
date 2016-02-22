@@ -26,7 +26,7 @@ namespace TF.ProductMicroservice
             Product result = null;
             using (var productContext = new ProductContext())
             {
-                result = productContext.Products.Include("ChildProducts").Single(p => p.Id == productId);
+                result = productContext.Products.Include("ChildProducts").SingleOrDefault(p => p.Id == productId);
             }
             return result;
         }
@@ -48,7 +48,7 @@ namespace TF.ProductMicroservice
             Product toDel = null;
             using (var productContext = new ProductContext())
             {
-                toDel = productContext.Products.First(p => p.Id == productId);
+                toDel = productContext.Products.Include("ChildProducts").SingleOrDefault(p => p.Id == productId);
                 if (toDel != null)
                 {
                     productContext.Products.Remove(toDel);
