@@ -43,7 +43,7 @@ namespace ProductRestApiTests
                 var product = RepositoryTests.GetSimpleProduct();
 
                 response = await client.PostAsJsonAsync(serviceUri, product);
-                Product postResult = await response.Content.ReadAsAsync<Product>();
+                ProductMessage postResult = await response.Content.ReadAsAsync<ProductMessage>();
 
                 response = await client.PutAsJsonAsync(serviceUri + '/' + postResult.Id, postResult);
                 Assert.IsTrue(response.IsSuccessStatusCode, "HTTP PUT fails");
@@ -63,7 +63,7 @@ namespace ProductRestApiTests
                 var product = RepositoryTests.GetSimpleProduct();
 
                 response = await client.PostAsJsonAsync(serviceUri, product);
-                Product postResult = await response.Content.ReadAsAsync<Product>();
+                ProductMessage postResult = await response.Content.ReadAsAsync<ProductMessage>();
 
                 response = await client.DeleteAsync(serviceUri + '/' + postResult.Id);
                 Assert.IsTrue(response.IsSuccessStatusCode, "HTTP DELETE fails");
